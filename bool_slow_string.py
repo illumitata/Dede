@@ -96,8 +96,6 @@ def algorithm(n):
     #####################
     return k
 
-    "the code you want to test stays here"
-
 def main():
     n = 5
     n_lookup = [2, 3, 6, 20, 168]

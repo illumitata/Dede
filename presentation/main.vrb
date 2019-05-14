@@ -1,0 +1,8 @@
+
+\frametitle{Flagi kompilatora}
+
+\centering
+Spróbujmy zoptymalizować kod przy pomocy kompilatora, użyjmy do tego flag:
+
+\code{-O3 -funroll-loops}
+\blfootnote{\href{https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html?fbclid=IwAR2YXJ7tPN0nU1r3xm\_p36LPmPCy4P3LiJ6j4bZQFfCeun6RhHIVvZ2FfQY}{Link do opisu flag dla kompilatora GCC}}

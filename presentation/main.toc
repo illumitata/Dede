@@ -1,0 +1,12 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Wst\IeC {\k e}p i przypomnienie}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Liczba Dedekinda}{5}{0}{1}
+\beamer@subsectionintoc {1}{2}{Przypomnienie - funkcja boolowska}{6}{0}{1}
+\beamer@subsectionintoc {1}{3}{Przypomnienie - monotoniczno\IeC {\'s}\IeC {\'c}}{7}{0}{1}
+\beamer@subsectionintoc {1}{4}{Przypomnienie - konkatenacja dw\IeC {\'o}ch funkcji}{8}{0}{1}
+\beamer@sectionintoc {2}{Algorytmy}{9}{0}{2}
+\beamer@subsectionintoc {2}{1}{Wizualizacja kostek}{10}{0}{2}
+\beamer@subsectionintoc {2}{2}{Pierwszy algorytm}{11}{0}{2}
+\beamer@subsectionintoc {2}{3}{Drugi algorytm}{12}{0}{2}
+\beamer@sectionintoc {3}{Podsumowanie}{13}{0}{3}

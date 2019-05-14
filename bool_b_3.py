@@ -2,6 +2,7 @@ import math
 import numpy as np
 import sys
 import time
+from datetime import datetime
 
 def concat_int(x, y, offset):
     '''
@@ -53,29 +54,35 @@ def arr_to_bin(arr):
         _arr.append(bin(_m))
     return _arr
 
+def find_index(m, M):
+    for i in range(0, len(M)):
+        if m == M[i]:
+            return i
+    return None
+
 def algorithm(n):
     # Variables
     if n == 0:
         return 2
     k = 0
-    M2 = []
-    _n = n - 2
-    # Create elements from n-2 save them into M1
+    M3 = []
+    _n = n - 3
+    # Create elements from n-3 save them into M1
     #####################
     start_M = time.time()
     #####################
-    M2 = create_M(_n)
+    M3 = create_M(_n)
     #####################
     end_M = time.time()
     print('M_time:\t\t' + str(end_M - start_M))    
     #####################
     start_alg = time.time()
     #####################
-    r = np.zeros( ( len(M2), len(M2) ) )
+    r = np.zeros( ( len(M3), len(M3) ) )
 
-    for i in range(0, len(M2)):
-        for j in range(0, len(M2)):
-            if eltwise_int(M2[i], M2[j]) is True:
+    for i in range(0, len(M3)):
+        for j in range(0, len(M3)):
+            if eltwise_int(M3[i], M3[j]) is True:
                 r[i][j] = 1
 
     re = np.matmul(r, r)
@@ -83,11 +90,30 @@ def algorithm(n):
     # print(r)
     # print(re)
 
-    for i in range(0, len(M2)):
-        for j in range(i, len(M2)): # why bother with 0's on the left
-            d = re[i][j]
-            # d += 1 # add one to count the index like distance
-            k += d * d
+    for a in M3:
+        for b in M3:
+            for c in M3:
+                H = 0
+                h = 0
+                a_index = find_index(a, M3)
+                b_index = find_index(b, M3)
+                c_index = find_index(c, M3)
+                ab_index = find_index(a & b, M3)
+                bc_index = find_index(b & c, M3)
+                ac_index = find_index(a & c, M3)
+                or_value = a | b | c
+                and_value = a & b & c                          
+                for u in range(0, len(M3)):
+                    if eltwise_int(or_value, M3[u]):
+                        H = H + (re[a_index][u] * \
+                                re[b_index][u] * \
+                                re[c_index][u])
+                for v in range(0, len(M3)):
+                    if eltwise_int(M3[v], and_value):
+                        h = h + (re[v][ab_index] * \
+                                re[v][bc_index] * \
+                                re[v][ac_index])
+                k += H * h
     #####################
     end_alg = time.time()
     print('alg_time:\t' + str(end_alg - start_alg))
@@ -95,9 +121,9 @@ def algorithm(n):
     # print('M1:')
     # print(M1)
     # print(arr_to_hex(M1))
-    # print('M2:')
-    # print(M2)
-    # print(arr_to_bin(M2))
+    # print('M3:')
+    # print(M3)
+    # print(arr_to_bin(M3))
     #####################
     return k
 
